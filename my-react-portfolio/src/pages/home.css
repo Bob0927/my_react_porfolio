@@ -1,0 +1,42 @@
+.home {
+    text-align: center;
+    padding: 50px;
+}
+
+.hero {
+    max-width: 800px;
+    margin: auto;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+h2 {
+    color: gray;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
