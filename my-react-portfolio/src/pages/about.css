@@ -2,6 +2,9 @@
 
 .about-page {
     min-height: 100svh;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     color: #d6e3ff;
     background: #041329;
     font-family: 'Manrope', var(--sans);
@@ -22,6 +25,7 @@
 .about-content,
 .about-footer__inner {
     width: min(1160px, calc(100% - 64px));
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -128,7 +132,8 @@
 }
 
 .about-content {
-    padding-top: 96px;
+    padding-top: 24px;
+    max-width: 100%;
     overflow-x: hidden;
 }
 
@@ -285,119 +290,35 @@
 .hero-photo-card {
     position: relative;
     flex: 1;
-    aspect-ratio: 1;
+    width: 100%;
+    aspect-ratio: 4 / 5;
     padding: 10px;
     border-radius: 24px;
     overflow: hidden;
     background: #0d1c32;
 }
 
-.hero-photo-card img,
-.hero-photo-fallback {
+.hero-photo-card img {
     width: 100%;
     height: 100%;
     border-radius: 18px;
-}
-
-.hero-photo-card img {
     display: block;
-    object-fit: cover;
-    filter: grayscale(1);
-    transition: filter 0.7s ease;
+    object-fit: contain;
+    object-position: center top;
+    filter: none;
+    background: #ffffff;
 }
 
-.hero-photo-card:hover img {
-    filter: grayscale(0);
-}
-
-.hero-photo-fallback {
-    display: grid;
-    place-items: center;
-    padding: 32px;
-    background:
-        radial-gradient(circle at top left, rgba(95, 251, 214, 0.12), transparent 30%),
-        #0d1c32;
-    text-align: center;
-}
-
-.hero-photo-fallback span {
-    width: 112px;
-    height: 112px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background: rgba(214, 227, 255, 0.08);
-    color: #ffffff;
-    font-family: 'Inter', var(--sans);
-    font-size: 3rem;
-    font-weight: 900;
-}
-
-.hero-photo-fallback p {
-    max-width: 260px;
-    margin-top: 22px;
-    color: #bacac3;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.hero-credential {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    align-self: flex-end;
-    width: fit-content;
-    padding: 10px 14px;
-    border: 1px solid #3c4a45;
-    border-radius: 14px;
-    background: rgba(39, 53, 76, 0.9);
-    backdrop-filter: blur(16px);
-}
-
-.hero-credential__icon,
 .skill-card__icon,
 .cert-card__icon {
     position: relative;
     display: inline-block;
 }
 
-.hero-credential__icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #5ffbd6 0%, #00d2ff 100%);
-}
-
-.hero-credential__icon::before,
 .skill-card__icon::before,
 .cert-card__icon::before {
     content: '';
     position: absolute;
-}
-
-.hero-credential__icon::before {
-    inset: 7px;
-    border-radius: 5px;
-    background: rgba(0, 56, 45, 0.6);
-}
-
-.hero-credential p {
-    margin: 0;
-    color: #bacac3;
-    font-family: 'Space Grotesk', var(--sans);
-    font-size: 0.56rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-}
-
-.hero-credential strong {
-    display: block;
-    margin-top: 3px;
-    color: #a5e7ff;
-    font-family: 'Inter', var(--sans);
-    font-size: 0.88rem;
-    font-weight: 800;
 }
 
 .content-section--alt {
@@ -1078,7 +999,7 @@
 
 .journey-timeline {
     position: relative;
-    margin-left: 12px;
+    margin-left: 0;
     padding-left: 24px;
     border-left: 2px solid rgba(133, 148, 142, 0.3);
 }

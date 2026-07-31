@@ -1,54 +1,70 @@
+import { useState } from 'react';
 import './Navbar.css';
 
 const tabs = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
     { id: 'certificates', label: 'Certificates' },
-    { id: 'otherwebs', label: 'Other Webs' },
+    { id: 'projects', label: 'Projects' },
 ];
 
-function Navbar({ currentPage, onNavigate, onToggleMenu }) {
+function Navbar() {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const handleNavClick = () => {
+        setMenuOpen(false);
+    };
+
     return (
         <nav className="portfolio-nav" aria-label="Site navigation">
             <div className="portfolio-nav__left">
-                {onToggleMenu ? (
-                    <button
-                        className="portfolio-nav__menu"
-                        onClick={onToggleMenu}
-                        type="button"
-                        aria-label="Open menu"
-                    >
-                        <span />
-                        <span />
-                        <span />
-                    </button>
-                ) : null}
-
-                <button
+                <a
                     className="portfolio-nav__brand"
-                    onClick={() => onNavigate('home')}
-                    type="button"
+                    href="#top"
+                    onClick={handleNavClick}
                 >
                     Wei Wang
+                </a>
+
+                <button
+                    className={`portfolio-nav__menu ${menuOpen ? 'is-open' : ''}`}
+                    type="button"
+                    aria-label="Toggle navigation"
+                    aria-expanded={menuOpen}
+                    onClick={() => setMenuOpen((open) => !open)}
+                >
+                    <span />
+                    <span />
+                    <span />
                 </button>
             </div>
 
             <div className="portfolio-nav__tabs">
                 {tabs.map((tab) => (
-                    <button
-                        className={
-                            currentPage === tab.id
-                                ? 'portfolio-nav__tab is-active'
-                                : 'portfolio-nav__tab'
-                        }
+                    <a
+                        className="portfolio-nav__tab"
                         key={tab.id}
-                        onClick={() => onNavigate(tab.id)}
-                        type="button"
+                        href={`#${tab.id}`}
+                        onClick={handleNavClick}
                     >
                         {tab.label}
-                    </button>
+                    </a>
                 ))}
             </div>
+
+            {menuOpen ? (
+                <div className="portfolio-nav__mobile">
+                    {tabs.map((tab) => (
+                        <a
+                            className="portfolio-nav__tab"
+                            key={`mobile-${tab.id}`}
+                            href={`#${tab.id}`}
+                            onClick={handleNavClick}
+                        >
+                            {tab.label}
+                        </a>
+                    ))}
+                </div>
+            ) : null}
         </nav>
     );
 }
